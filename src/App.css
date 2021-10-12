@@ -46,6 +46,10 @@
   background-color: #F8263A;
 }
 
+.table-row-color{
+  background-color: #f2f3f6;
+}
+
 .check-in-input {
   border: none;
   background: transparent;
@@ -61,4 +65,30 @@
 .header-border-bottom {
   border-bottom: 20px solid #192A53;
   outline: none;
+}
+
+.title-border-bottom {
+  border-bottom: 2px solid #192A53;
+  outline: none;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.pointer { 
+  cursor: pointer; 
 }
