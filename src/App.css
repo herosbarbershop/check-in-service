@@ -40,6 +40,12 @@
 
 .navi-color{
   background-color: #192A53;
+  color: rgb(255, 255, 255);
+}
+
+.navi-color :hover{
+  background-color: #192A53;
+  color: rgb(255, 255, 255);
 }
 
 .red-color{
@@ -91,4 +97,12 @@
 
 .pointer { 
   cursor: pointer; 
+}
+
+.invisible{
+  visibility: hidden;
+}
+
+.btn:hover {
+  color: #ffffff;
 }
