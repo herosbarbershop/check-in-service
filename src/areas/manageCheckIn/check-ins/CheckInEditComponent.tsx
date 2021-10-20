@@ -40,7 +40,7 @@ export function CheckInEditComponent(props: CheckInEditComponentProps) {
 
   const mapping: { [key: string]: any; } = {
     Service: services,
-    Appointment: ['Walk-in', 'Google', 'Booksy', 'Other'],
+    Appointment: ['Walk-in', 'Booksy', 'Phone', 'Other'],
     Status: [ServiceStatus.COMPLETED, ServiceStatus.PENDING],
     Barber: barbers.map(b => `${b.firstName} ${b.lastName} (${b.alias})`)
   };

@@ -67,7 +67,7 @@ export function CheckInComponent(props: CheckInComponentProps) {
   };
 
   const categories = ['Name', 'Service', 'Appointment', 'Barber'];
-  const appointmentTypes = ['Walk-in', 'Google', 'Booksy', 'Other'];
+  const appointmentTypes = ['Walk-in', 'Booksy', 'Phone', 'Other'];
   const finish = state.filter(value => value?.trim()).length === 4;
   let finishButtonClass = "mt-2 btn btn-lg fs-1 fw-bold w-50 mx-auto";
 
@@ -75,6 +75,16 @@ export function CheckInComponent(props: CheckInComponentProps) {
     finishButtonClass = `${finishButtonClass} btn-danger`
   } else {
     finishButtonClass = `${finishButtonClass} btn-outline-danger`
+  }
+
+  if (services.length === 0 || barbers.length === 0) {
+    return (<div className="container fade-in">
+      <div className="card border-0 mx-auto my-5 text-center">
+        <div className="card-body mb-3 px-0">
+          <h1 className="card-title fs-3 bg-danger p-3 text-light">You have not added your services and barbers yet. Go to the Manage page and add them.</h1>
+        </div>
+      </div>
+    </div>);
   }
 
   return (

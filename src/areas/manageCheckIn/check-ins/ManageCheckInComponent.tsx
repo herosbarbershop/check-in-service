@@ -84,8 +84,6 @@ export function ManageCheckInComponent(props: any) {
     }
   };
 
-
-
   return (
     <div >
       <div className="my-2">
