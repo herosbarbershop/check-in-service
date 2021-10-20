@@ -18,7 +18,7 @@ export function ReportListComponent(props: ReportListComponentProps) {
   return (
     <div className="row fade-in px-3">
       {props.reportData.map((data, i) => (
-        <div className="border">
+        <div className="border" key={i}>
           <h5 className="fs-6 border-bottom my-2">{data.title}</h5>
           <table className="table table-borderless">
             <thead className="bg-secondary">

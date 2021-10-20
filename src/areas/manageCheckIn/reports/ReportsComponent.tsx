@@ -47,7 +47,7 @@ export function ReportsComponent() {
   const buttonTextMapping = {
     [ReportKey.barber]: 'By Barbers',
     [ReportKey.service]: 'By Services',
-    [ReportKey.appointmentType]: 'By Appointment Types'
+    [ReportKey.appointmentType]: 'By Appointment'
   }
 
   return (
