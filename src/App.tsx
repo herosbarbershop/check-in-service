@@ -44,7 +44,6 @@ function App() {
 
   const initializeAuth = () => {
     if (getItem<Barber[]>(storageKeys.BARBERS)) {
-      console.log('open')
       setIsModalOpen(true);
     }
   };
