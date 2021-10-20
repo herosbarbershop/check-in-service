@@ -4,7 +4,7 @@ export interface CheckInInfo {
   service: string;
   appointmentType: string;
   barber: string;
-  payment?: number;
+  payment: number;
   status?: ServiceStatus;
 }
 

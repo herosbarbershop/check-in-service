@@ -35,15 +35,20 @@ export function CheckInComponent(props: CheckInComponentProps) {
   const handleSubmit = () => {
     const dailyCheckIns = getItem<DailyCheckIn[]>(storageKeys.DAILY_CHECKINS) ?? [];
     const todayDate = getTodayDate();
+    const [customer, service, appointmentType, barber] = state;
+    const checkin = { id: Date.now(), status: ServiceStatus.PENDING, customer: customer.trim(), service, appointmentType, barber, payment: 0 };
 
-    for (const item of dailyCheckIns) {
-      if (item.date === todayDate) {
-        const [customer, service, appointmentType, barber] = state;
-        item.checkInInfos = [...item.checkInInfos, { id: Date.now(), status: ServiceStatus.PENDING, customer: customer.trim(), service, appointmentType, barber }];
-        setItem(storageKeys.DAILY_CHECKINS, dailyCheckIns);
-        props.setIsCheckingIn(false);
-      }
+    const index = dailyCheckIns.findIndex(d => d.date === todayDate);
+
+    if (index > -1) {
+      dailyCheckIns[index].checkInInfos.push(checkin);
+    } else {
+      const todayCheckIns = { id: Date.now(), date: todayDate, checkInInfos: [checkin] };
+      dailyCheckIns.push(todayCheckIns)
     }
+
+    setItem(storageKeys.DAILY_CHECKINS, dailyCheckIns);
+    props.setIsCheckingIn(false);
   };
 
   const CustomerInput = () => {
@@ -77,7 +82,7 @@ export function CheckInComponent(props: CheckInComponentProps) {
       <div className="card border-0 mx-auto my-5 text-center">
         <div className="card-body mb-3 px-0">
           <div className="mb-3">
-            {state.filter(item => item).map((item, i) => <span key={i} className="badge rounded-pill fs-3 m-1 navi-color">{`${categories[i]}: ${item}`}</span>)}
+            {state.filter(item => item).map((item, i) => <span key={i} className="badge rounded-pill fs-5 m-1 navi-color">{`${categories[i]}: ${item}`}</span>)}
           </div>
           {CustomerInput()}
           <SelectionComponent index={1} options={services} title="Select Haircut" currentIndex={currentIndex} handleChanges={handleChanges} />

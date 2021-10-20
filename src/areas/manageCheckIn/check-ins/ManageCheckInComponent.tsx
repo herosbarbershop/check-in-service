@@ -4,6 +4,7 @@ import { CheckInInfo, DailyCheckIn } from '../../../types';
 import { CheckInEditComponent } from './CheckInEditComponent';
 import { ManageDailyCheckInListComponent } from './ManageDailyCheckInListComponent';
 import { ManageActionPayload, ManageAction } from '../ManageComponent';
+import { ManageAuthComponent } from '../ManageAuthComponent';
 
 export function ManageCheckInComponent(props: any) {
   const formatValue = (num: number) => num.toString().length < 2 ? '0' + num : num;
@@ -13,6 +14,7 @@ export function ManageCheckInComponent(props: any) {
   const [editing, setEditing] = useState<boolean>(false);
   const [, setShouldRefresh] = useState<any>();
   const [checkInToEdit, setCheckInToEdit] = useState<CheckInInfo | undefined>();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const getCheckInToEdit = () => {
     const dailyCheckIns = getItem<DailyCheckIn[]>(storageKeys.DAILY_CHECKINS) ?? [];
@@ -64,6 +66,12 @@ export function ManageCheckInComponent(props: any) {
     setItem(storageKeys.DAILY_CHECKINS, dailyCheckIns);
   };
 
+  const authorize = () => {
+    deleteCheckIn();
+    setIsOpen(false);
+    setShouldRefresh(new Date());
+  }
+
   const handleManageAction = (payload: ManageActionPayload) => {
     setItem(storageKeys.CHECKIN_MANAGE_ACTION, payload);
 
@@ -72,13 +80,14 @@ export function ManageCheckInComponent(props: any) {
       setCheckInToEdit(getCheckInToEdit());
     }
     if (payload.action === ManageAction.DELETE) {
-      deleteCheckIn();
-      setShouldRefresh(payload);
+      setIsOpen(true);
     }
   };
 
+
+
   return (
-    <div className="">
+    <div >
       <div className="my-2">
         <div className="fs-4 fw-bold">
           Select Check-in Date
@@ -93,5 +102,6 @@ export function ManageCheckInComponent(props: any) {
           <ManageDailyCheckInListComponent dailyCheckIn={getDailyCheckInByDate()} handleManageAction={handleManageAction} />
         </div>
       </div>
+      <ManageAuthComponent isOpen={isOpen} setIsModalOpen={setIsOpen} authorize={authorize} />
     </div>);
 }

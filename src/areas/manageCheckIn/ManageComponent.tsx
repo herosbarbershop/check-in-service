@@ -1,11 +1,11 @@
 import React from 'react';
 import { BarbersComponent } from './barbers/BarbersComponent';
 import { ManageCheckInComponent } from './check-ins/ManageCheckInComponent';
+import { ReportsComponent } from './reports/ReportsComponent';
 import { ServicesComponent } from './services/ServicesComponent';
 
 
 export enum ManageAction {
-  TOGGLE = 'toggle',
   EDIT = 'edit',
   DELETE = 'delete',
 }
@@ -43,7 +43,7 @@ export function ManageComponent(props: any) {
           <BarbersComponent />
         </div>
         <div className="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
-          Reports
+          <ReportsComponent />
         </div>
       </div>
     </div>

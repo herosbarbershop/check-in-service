@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import { getItem, storageKeys } from '../../storageManager';
-import { AppAlert, Barber, View } from '../../types';
+import { AppAlert, Barber } from '../../types';
+import Modal from 'react-modal';
 
 interface ManageAuthComponentProps {
-  handleViewChange: (view: View) => void;
+  isOpen: boolean;
+  setIsModalOpen: (flag: boolean) => void;
+  authorize: () => void;
 }
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backGroundColor: 'red',
+  },
+};
+
 
 export function ManageAuthComponent(props: ManageAuthComponentProps) {
   const [barbers] = useState(getItem<Barber[]>(storageKeys.BARBERS) ?? []);
@@ -17,35 +33,25 @@ export function ManageAuthComponent(props: ManageAuthComponentProps) {
     setValue(inputValue);
 
     if (barberCode) {
-      authorize();
+      setValue('');
+      setShowError({ show: false, message: '' });
+      props.authorize();
     } else {
       setShowError({ show: true, message: 'Barber code is not valid!', color: 'text-danger' });
     }
   };
 
-  const authorize = () => {
-    const authenticateModeElement = (document.getElementById('authenticateMode') as HTMLElement);
-    const modalBackDrop = (document.getElementsByClassName('modal-backdrop') as HTMLCollectionOf<Element>)?.[0];
-    const pageBody = (document.getElementsByTagName('body') as HTMLCollectionOf<HTMLBodyElement>)?.[0];
-
-    if (authenticateModeElement && modalBackDrop && pageBody) {
-      props.handleViewChange(View.MANAGE);
-      authenticateModeElement.style.display = "none";
-      modalBackDrop.remove();
-      pageBody.classList.remove('modal-open');
-      setValue('');
-      setShowError({ show: false, message: '' });
-    } else {
-      setShowError({ show: true, message: 'Something when wrong. Please try again.' });
-    }
-  };
-
   return <div className="modal fade" id="authenticateMode">
     <div className="modal-dialog">
-      <div className="modal-content">
+      <Modal
+        isOpen={props.isOpen}
+        onRequestClose={() => props.setIsModalOpen(false)}
+        style={customStyles}
+      >
+
         <div className="modal-header">
-          <h5 className="modal-title"><i className="fa-solid fa-circle-info"></i> Barber code is required to access manage.</h5>
-          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 className="modal-title"><i className="fa-solid fa-circle-info"></i> Barber code is required to perform this action.</h5>
+          <button type="button" onClick={() => props.setIsModalOpen(false)} className="btn-close" aria-label="Close"></button>
         </div>
         <div className="modal-body">
           <input
@@ -62,9 +68,9 @@ export function ManageAuthComponent(props: ManageAuthComponentProps) {
             ''}
         </div>
         <div className="modal-footer">
-          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{<i className="fa-solid fa-x"></i>} Close</button>
+          <button type="button" className="btn btn-secondary" onClick={() => props.setIsModalOpen(false)}>{<i className="fa-solid fa-x"></i>} Close</button>
         </div>
-      </div>
+      </Modal>
     </div>
   </div>;
 }

@@ -67,7 +67,7 @@ export function ServicesComponent(props: any) {
   }
 
   return (
-    <div className="">
+    <div >
       <div className="fs-4 navi-color p-2 mb-2">Create New Service</div>
       <AddServicesComponent
         setServices={setServices}

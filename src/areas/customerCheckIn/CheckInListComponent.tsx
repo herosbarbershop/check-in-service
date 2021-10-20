@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { CheckInInfo, View } from '../../types';
+import React from 'react';
+import { CheckInInfo } from '../../types';
 
 interface CheckInListComponentProps {
   checkInInfos: CheckInInfo[];
@@ -9,7 +9,7 @@ export function CheckInListComponent(props: CheckInListComponentProps) {
     <table className="table table-borderless mb-5 fade-in">
       <thead className="navi-color text-light border-light">
         <tr className="table-font border-bottom ">
-          <th className="" scope="col">Customer</th>
+          <th scope="col">Customer</th>
           <th scope="col">Service</th>
           <th scope="col">Appointment</th>
           <th scope="col">Barber</th>
@@ -18,7 +18,7 @@ export function CheckInListComponent(props: CheckInListComponentProps) {
       <tbody>
         {props.checkInInfos.length ? props.checkInInfos.map((info, i) => (
           <tr key={i} className="table-font border-bottom rounded table-row-color">
-            <td className="">{info.customer}</td>
+            <td >{info.customer}</td>
             <td>{info.service}</td>
             <td>{info.appointmentType}</td>
             <td>{info.barber}</td>

@@ -10,11 +10,11 @@ interface ManageDailyCheckInListComponentProps {
 export function ManageDailyCheckInListComponent(props: ManageDailyCheckInListComponentProps) {
   const checkInInfos = props.dailyCheckIn?.checkInInfos ?? [];
 
-  return <div className="">
+  return <div >
     <table className="table table-borderless mb-5 fade-in">
       <thead className="navi-color text-light border-light">
         <tr className="fs-5 border-bottom ">
-          <th className="" scope="col">Customer</th>
+          <th scope="col">Customer</th>
           <th scope="col">Service</th>
           <th scope="col">Appointment</th>
           <th scope="col">Barber</th>
@@ -26,7 +26,7 @@ export function ManageDailyCheckInListComponent(props: ManageDailyCheckInListCom
       <tbody>
         {checkInInfos.length ? checkInInfos.map((info, i) => (
           <tr key={i} className="fw-bold border-bottom rounded table-row-color">
-            <td className="">{info.customer}</td>
+            <td >{info.customer}</td>
             <td>{info.service}</td>
             <td>{info.appointmentType}</td>
             <td>{info.barber}</td>
@@ -36,7 +36,7 @@ export function ManageDailyCheckInListComponent(props: ManageDailyCheckInListCom
           </tr>
         )) :
           <tr className="fw-bold border-bottom rounded table-row-color">
-            <td colSpan={8} className="">No check-in found for the selected date.</td>
+            <td colSpan={8} >No check-in found for the selected date.</td>
           </tr>}
       </tbody>
     </table>
