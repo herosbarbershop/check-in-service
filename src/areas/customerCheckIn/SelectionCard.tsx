@@ -8,7 +8,7 @@ interface SelectionCardProps {
 }
 
 export function SelectionCard(props: SelectionCardProps) {
-  let selectedClass = 'card pointer mb-3';
+  let selectedClass = 'card pointer mb-3 selection-card';
 
   if (props.selected) {
     selectedClass = `${selectedClass} bg-primary`;

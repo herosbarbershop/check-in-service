@@ -68,7 +68,7 @@ export function CheckInComponent(props: CheckInComponentProps) {
 
   const categories = ['Name', 'Service', 'Appointment', 'Barber'];
   const appointmentTypes = ['Walk-in', 'Google', 'Booksy', 'Other'];
-  const finish = state.filter(value => value.trim()).length === 4;
+  const finish = state.filter(value => value?.trim()).length === 4;
   let finishButtonClass = "mt-2 btn btn-lg fs-1 fw-bold w-50 mx-auto";
 
   if (finish) {
@@ -85,9 +85,9 @@ export function CheckInComponent(props: CheckInComponentProps) {
             {state.filter(item => item).map((item, i) => <span key={i} className="badge rounded-pill fs-5 m-1 navi-color">{`${categories[i]}: ${item}`}</span>)}
           </div>
           {CustomerInput()}
-          <SelectionComponent index={1} options={services} title="Select Haircut" currentIndex={currentIndex} handleChanges={handleChanges} />
-          <SelectionComponent index={2} options={appointmentTypes} title="Select Appointment Type" currentIndex={currentIndex} handleChanges={handleChanges} />
-          <SelectionComponent index={3} options={barbers.map(b => `${b.firstName} ${b.lastName} (${b.alias})`)} title="Select Barber" currentIndex={currentIndex} handleChanges={handleChanges} />
+          <SelectionComponent index={1} options={services} title="What service are you getting?" currentIndex={currentIndex} handleChanges={handleChanges} />
+          <SelectionComponent index={2} options={appointmentTypes} title="Select the appointment." currentIndex={currentIndex} handleChanges={handleChanges} />
+          <SelectionComponent index={3} options={barbers.map(b => `${b.firstName} ${b.lastName} (${b.alias})`)} title="Who's your hero barber?" currentIndex={currentIndex} handleChanges={handleChanges} />
         </div>
         <div className="btn-group w-50 mx-auto" role="group" aria-label="Basic outlined example">
           <button type="button" disabled={currentIndex < 1} onClick={() => setCurrentIndex(currentIndex - 1)} className="btn btn-lg btn-outline-danger fs-1 fw-bold"><i className="fa-solid fa-circle-left"></i> Back</button>
