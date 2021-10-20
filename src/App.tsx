@@ -58,7 +58,7 @@ function App() {
     <div className="App mb-5">
       <nav className="navbar navbar-dark navi-color nav-border-bottom">
         <div className="container-fluid">
-          <span className="navbar-brand mb-0 fs-4 fw-bold border px-2 border-3 text-danger">Hero's Barbershop</span>
+          <span className="navbar-brand mb-0 fs-4 fw-bold border rounded-3 px-2 border-3 text-danger">Hero's Barbershop</span>
           {view === View.CHECK_IN ?
             <span className="navbar-brand mb-0 h1 btn mr-auto border-bottom border-3" onClick={initializeAuth}>{<i className="fa-solid fa-pen-to-square"></i>} Manage</span> :
             <span className="navbar-brand mb-0 h1 btn mr-auto border-bottom border-3" onClick={() => handleViewChange(View.CHECK_IN)}>{<i className="fa-solid fa-calendar-check"></i>} Check In</span>
