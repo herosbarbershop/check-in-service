@@ -21,6 +21,7 @@ const customStyles = {
   },
 };
 
+Modal.setAppElement('#root');
 
 export function ManageAuthComponent(props: ManageAuthComponentProps) {
   const [barbers] = useState(getItem<Barber[]>(storageKeys.BARBERS) ?? []);
