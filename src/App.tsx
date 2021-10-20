@@ -42,15 +42,18 @@ function App() {
     checkInButtonIcon = <i className="fa-solid fa-solid fa-x"></i>;
   }
 
-  const initializeAuth = () => {
-    if (getItem<Barber[]>(storageKeys.BARBERS)) {
-      setIsModalOpen(true);
-    }
-  };
 
   const authorize = () => {
     handleViewChange(View.MANAGE);
     setIsModalOpen(false);
+  };
+
+  const initializeAuth = () => {
+    if (getItem<Barber[]>(storageKeys.BARBERS)) {
+      setIsModalOpen(true);
+    } else {
+      authorize();
+    }
   };
 
   return (
