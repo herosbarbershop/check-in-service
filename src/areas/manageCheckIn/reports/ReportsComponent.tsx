@@ -57,20 +57,20 @@ export function ReportsComponent() {
           {buttonTextMapping[selection as ReportKey] ?? selection}
         </button>
         <ul className="dropdown-menu w-25" aria-labelledby="dropdownMenuButton1">
-          <li><span onClick={() => setSelection(ReportKey.barber)} className="dropdown-item w-100">Barbers</span></li>
-          <li><span onClick={() => setSelection(ReportKey.service)} className="dropdown-item">Services</span></li>
-          <li><span onClick={() => setSelection(ReportKey.appointmentType)} className="dropdown-item">Appointment</span></li>
+          <li><span onClick={() => setSelection(ReportKey.barber)} className="dropdown-item fw-bold"><i className="fa-solid fa-user"></i> Barbers</span></li>
+          <li><span onClick={() => setSelection(ReportKey.service)} className="dropdown-item fw-bold"><i className="fa-solid fa-scissors"></i> Services</span></li>
+          <li><span onClick={() => setSelection(ReportKey.appointmentType)} className="dropdown-item fw-bold">Appointment</span></li>
         </ul>
       </div>
       <>
         {selection === ReportKey.barber && <div >
-          <div className="fs-4 navi-color p-2 mb-2">Services</div>
+          <div className="fs-4 navi-color p-2 mb-2"><i className="fa-solid fa-scissors"></i> Services</div>
           <ReportListComponent reportData={filterBy(ReportKey.barber, ReportKey.service)} />
           <div className="fs-4 navi-color p-2 my-2">Appointment Types</div>
           <ReportListComponent reportData={filterBy(ReportKey.barber, ReportKey.appointmentType)} />
         </div>}
         {selection === ReportKey.service && <div >
-          <div className="fs-4 navi-color p-2 mb-2">Barbers</div>
+          <div className="fs-4 navi-color p-2 mb-2"><i className="fa-solid fa-user"></i> Barbers</div>
           <ReportListComponent reportData={filterBy(ReportKey.service, ReportKey.barber)} />
           <div className="fs-4 navi-color p-2 my-2">Appointment Types</div>
           <ReportListComponent reportData={filterBy(ReportKey.service, ReportKey.appointmentType)} />

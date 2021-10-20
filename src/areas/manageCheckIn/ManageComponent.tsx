@@ -20,16 +20,16 @@ export function ManageComponent(props: any) {
     <div className="container">
       <ul className="nav nav-tabs shadow my-5" id="myTab" role="tablist">
         <li className="nav-item" role="presentation">
-          <button className="nav-link fw-bold fs-5 active" id="manageCheckIn-tab" data-bs-toggle="tab" data-bs-target="#manageCheckIn" type="button" role="tab" aria-controls="manageCheckIn" aria-selected="true">Manage Check-in</button>
+          <button className="manage-tab nav-link fw-bold fs-5 active" id="manageCheckIn-tab" data-bs-toggle="tab" data-bs-target="#manageCheckIn" type="button" role="tab" aria-controls="manageCheckIn" aria-selected="true"><i className="fa-solid fa-calendar-check"></i> Manage Check-in</button>
         </li>
         <li className="nav-item" role="presentation">
-          <button className="nav-link fw-bold fs-5" id="services-tab" data-bs-toggle="tab" data-bs-target="#services" type="button" role="tab" aria-controls="services" aria-selected="false">Services</button>
+          <button className="manage-tab nav-link fw-bold fs-5" id="services-tab" data-bs-toggle="tab" data-bs-target="#services" type="button" role="tab" aria-controls="services" aria-selected="false"><i className="fa-solid fa-scissors"></i> Services</button>
         </li>
         <li className="nav-item" role="presentation">
-          <button className="nav-link fw-bold fs-5" id="barbers-tab" data-bs-toggle="tab" data-bs-target="#barbers" type="button" role="tab" aria-controls="barbers" aria-selected="false">Barbers</button>
+          <button className="manage-tab nav-link fw-bold fs-5" id="barbers-tab" data-bs-toggle="tab" data-bs-target="#barbers" type="button" role="tab" aria-controls="barbers" aria-selected="false"><i className="fa-solid fa-user-plus"></i> Barbers</button>
         </li>
         <li className="nav-item" role="presentation">
-          <button className="nav-link fw-bold fs-5" id="reports-tab" data-bs-toggle="tab" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="false">Reports</button>
+          <button className="manage-tab nav-link fw-bold fs-5" id="reports-tab" data-bs-toggle="tab" data-bs-target="#reports" type="button" role="tab" aria-controls="reports" aria-selected="false"><i className="fa-regular fa-calendar-lines"></i> Reports</button>
         </li>
       </ul>
       <div className="tab-content" id="myTabContent">

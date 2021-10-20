@@ -76,7 +76,7 @@ export function ServicesComponent(props: any) {
         alert={alert}
         service={service}
       />
-      <div className="fs-4 navi-color p-2 my-2">Services</div>
+      <div className="fs-4 navi-color p-2 my-2"><i className="fa-solid fa-scissors"></i> Services</div>
       <ManageServicesListComponent
         services={services}
         setService={setService}
