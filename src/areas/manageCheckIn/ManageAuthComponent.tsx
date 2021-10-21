@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getItem, storageKeys } from '../../storageManager';
-import { AppAlert, Barber } from '../../types';
+import { Barber } from '../../types';
 import Modal from 'react-modal';
 
 interface ManageAuthComponentProps {
