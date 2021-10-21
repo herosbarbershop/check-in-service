@@ -9,6 +9,8 @@ export function BarbersComponent() {
   const [barber, setBarber] = useState<Barber>({ firstName: '', lastName: '' });
   const defaultAlert = { show: false, message: '', color: '' };
   const [alert, setAlert] = useState<AppAlert>(defaultAlert);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [showInfoMessage, setShowInfoMessage] = useState(false);
 
   const addNewBarber = () => {
     const barbers = getItem<Barber[]>(storageKeys.BARBERS) ?? [];
@@ -60,14 +62,29 @@ export function BarbersComponent() {
     addNewBarber();
   }
 
+  const handleSetBarber = (service: Barber) => {
+    if (!isFormOpen) {
+      setShowInfoMessage(true);
+    }
+    setBarber(service);
+  }
+
+  const handleFormToggle = () => {
+    if (showInfoMessage) {
+      setShowInfoMessage(false);
+    }
+    setIsFormOpen(!isFormOpen);
+  }
+
   function getBarbers() {
     return getItem<Barber[]>(storageKeys.BARBERS) ?? [];
   }
 
   return (
     <>
-      <button className="btn navi-background-color" type="button" data-bs-toggle="collapse" data-bs-target="#AddBarbersComponent" aria-expanded="false" aria-controls="AddBarbersComponent">
-        <i className="fa-solid fa-user-plus"></i> Add Barber
+      {showInfoMessage && <div className="fw-bold fs-5 mb-2 text-info"><i className="fa-solid fa-circle-info"></i> Click the Add Barber button to view the edit form.</div>}
+      <button onClick={handleFormToggle} className="btn navi-background-color" type="button" data-bs-toggle="collapse" data-bs-target="#AddBarbersComponent" aria-expanded="false" aria-controls="AddBarbersComponent">
+        <i className={`fa-solid ${isFormOpen ? 'fa-xmark' : 'fa-plus'}`}></i> {isFormOpen ? 'Close Form' : 'Add Barber'}
       </button>
       <div className="collapse" id="AddBarbersComponent">
         <div className="card card-body">
@@ -83,8 +100,9 @@ export function BarbersComponent() {
       <div className="fs-4 navi-background-color p-2 my-2"><i className="fa-solid fa-user"></i>  Barbers</div>
       <ManageBarbersListComponent
         barbers={barbers}
-        setBarber={setBarber}
+        setBarber={handleSetBarber}
         setAlert={setAlert}
       />
-    </>);
+    </>
+  );
 }

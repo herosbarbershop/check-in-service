@@ -31,13 +31,13 @@ export function AddServicesComponent(props: AddServicesComponentProps) {
           </div>
           <div className="mb-3">
             <label htmlFor="price" className="form-label fw-bold">Price</label>
-            <input onChange={handleOnChange} name="price" type="number" className="form-control" id="price" value={props.service.price} />
+            <input onChange={handleOnChange} name="price" type="number" min="0" className="form-control" id="price" value={props.service.price} />
           </div>
           <div className="mb-3">
             <h5 className="fs-6 fw-bold">Status: {props.service.active ? 'Active' : 'Not Active'}</h5>
           </div>
           <div className="mb-3">
-            <button onClick={() => handleStatusChange(!props.service.active)} type="button" className="btn btn-warning">{props.service.active ? 'Deactive Service' : 'Activate Service'}</button>
+            <button onClick={() => handleStatusChange(!props.service.active)} type="button" className="btn btn-warning fw-bold">{props.service.active ? 'Deactive Service' : 'Activate Service'}</button>
           </div>
           <div className="mb-1">
             <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small fw-bold"><i className="fa-solid fa-xmark"></i> Clear fields</button>

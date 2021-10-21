@@ -22,9 +22,9 @@ export function ManageServicesListComponent(props: ManageServicesListComponentPr
         <div className="col-md-3" key={service.id}>
           <div className="card m-1">
             <div className="card-body">
-              <h5 className="card-title mx-1">{service.name}</h5>
-              <h6 className="card-subtitle mb-2 mx-1 text-muted">Price: {`$${service.price}`}</h6>
-              <h6 className="card-subtitle mb-2 mx-1 text-muted">Status: {service.active ? 'Active' : 'Not Active'}</h6>
+              <h5 className="card-title mx-1 navi-font-color">{service.name}</h5>
+              <h6 className="card-subtitle mb-2 mx-1 text-muted navi-font-color">Price: {`$${service.price}`}</h6>
+              <h6 className="card-subtitle mb-2 mx-1 text-muted navi-font-color">Status: {service.active ? 'Active' : 'Not Active'}</h6>
               <button onClick={() => handleOnClick(service.id)} type="button" className="btn btn-sm navi-background-color mx-1 w-100">Update</button>
             </div>
           </div>
