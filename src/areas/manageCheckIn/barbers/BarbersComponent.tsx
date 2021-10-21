@@ -68,7 +68,7 @@ export function BarbersComponent() {
 
   return (
     <>
-      <button className="btn navi-color" type="button" data-bs-toggle="collapse" data-bs-target="#AddBarbersComponent" aria-expanded="false" aria-controls="AddBarbersComponent">
+      <button className="btn navi-background-color" type="button" data-bs-toggle="collapse" data-bs-target="#AddBarbersComponent" aria-expanded="false" aria-controls="AddBarbersComponent">
         <i className="fa-solid fa-user-plus"></i> Add Barber
       </button>
       <div className="collapse" id="AddBarbersComponent">
@@ -82,7 +82,7 @@ export function BarbersComponent() {
           />
         </div>
       </div>
-      <div className="fs-4 navi-color p-2 my-2"><i className="fa-solid fa-user"></i>  Barbers</div>
+      <div className="fs-4 navi-background-color p-2 my-2"><i className="fa-solid fa-user"></i>  Barbers</div>
       <ManageBarbersListComponent
         barbers={barbers}
         setBarber={setBarber}

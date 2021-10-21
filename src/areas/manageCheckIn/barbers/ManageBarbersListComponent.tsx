@@ -24,7 +24,7 @@ export function ManageBarbersListComponent(props: ManageBarbersListComponentProp
             <div className="card-body">
               <h5 className="card-title">{barber.firstName} {barber.lastName}</h5>
               <h6 className="card-subtitle mb-2 text-muted">Alias: {barber.alias}</h6>
-              <button onClick={() => handleOnClick(barber.alias as string)} type="button" className="btn btn-sm navi-color mx-1 w-100">Update</button>
+              <button onClick={() => handleOnClick(barber.alias as string)} type="button" className="btn btn-sm navi-background-color mx-1 w-100">Update</button>
             </div>
           </div>
         </div>)) : <div className="fs-5">No barber has been added. Click the Add Barber to add new barber information.</div>

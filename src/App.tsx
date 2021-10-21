@@ -58,7 +58,7 @@ function App() {
 
   return (
     <div className="App mb-5">
-      <nav className="navbar navbar-dark navi-color nav-border-bottom">
+      <nav className="navbar navbar-dark navi-background-color nav-border-bottom">
         <div className="container-fluid">
           <span className="navbar-brand mb-0 fs-4 fw-bold border rounded-3 px-2 border-3 text-danger">Hero's Barbershop</span>
           {view === View.CHECK_IN ?
@@ -70,7 +70,7 @@ function App() {
       {view === View.CHECK_IN && (
         <>
           <header className="App-header header-border-bottom mb-3">
-            {<button onClick={() => setIsCheckingIn(!isCheckingIn)} className="btn btn-lg navi-color text-light py-3 px-5 fs-1 fw-bold fade-in">{checkInButtonIcon} {checkInButtonLabel}</button>}
+            {<button onClick={() => setIsCheckingIn(!isCheckingIn)} className="btn btn-lg navi-background-color text-light py-3 px-5 fs-1 fw-bold fade-in">{checkInButtonIcon} {checkInButtonLabel}</button>}
           </header>
           <div>
             {isCheckingIn && <CheckInComponent setIsCheckingIn={setIsCheckingIn} />}

@@ -17,7 +17,7 @@ export function SelectionCard(props: SelectionCardProps) {
   return (
     <div className={selectedClass} onClick={() => props.handleChanges(props.name)}>
       <div className="card-body">
-        <h5 className="card-title fs-5">{props.name}</h5>
+        <h5 className="card-title fs-5 fw-bold m-0">{props.name}</h5>
       </div>
     </div>
   );

@@ -38,12 +38,20 @@
   font-size: 2rem;
 }
 
-.navi-color{
+.navi-background-color{
   background-color: #192A53;
   color: rgb(255, 255, 255);
 }
 
-.navi-color :hover{
+.navi-font-color{
+  color: #192A53;
+}
+
+.navi-font-color{
+  color: #192A53;
+}
+
+.navi-background-color :hover{
   background-color: #192A53;
   color: rgb(255, 255, 255);
 }
@@ -107,7 +115,13 @@
   color: #ffffff;
 }
 
+.selection-card{
+  background-color: #e0e3eb;
+  color: #192A53;
+  border: 3px solid #192A53;
+}
+
 .selection-card:hover {
   background-color: #192A53;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
 }

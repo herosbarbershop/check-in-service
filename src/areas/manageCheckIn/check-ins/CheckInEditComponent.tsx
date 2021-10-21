@@ -76,11 +76,11 @@ export function CheckInEditComponent(props: CheckInEditComponentProps) {
         {Object
           .entries(values ?? {} as { [key: string]: any; })
           .filter(([key]) => key)
-          .map(([key, value]) => <button onClick={() => setOptionKey(key)} type="button" key={key} className="m-1 badge rounded-pill fs-5 navi-color">{`${key}: ${value}`}</button>)}
+          .map(([key, value]) => <button onClick={() => setOptionKey(key)} type="button" key={key} className="m-1 badge rounded-pill fs-5 navi-background-color">{`${key}: ${value}`}</button>)}
       </div>
       {optionKey && <div className="mb-3 fade-in">
         <h5 className="fs-5">Click to select new options</h5>
-        {mapping[optionKey as string]?.map((value: string, i: number) => <button type="button" disabled={value === newValue} onClick={() => value !== newValue && setOptionNewValue(value)} key={i} className="btn btn-sm navi-color mx-1">{value}</button>)}
+        {mapping[optionKey as string]?.map((value: string, i: number) => <button type="button" disabled={value === newValue} onClick={() => value !== newValue && setOptionNewValue(value)} key={i} className="btn btn-sm navi-background-color mx-1">{value}</button>)}
       </div>}
       <div className="mb-3">
         {newValue && <button type="button" onClick={handleSaveChanges} className="btn btn-sm btn-primary fs-5 fade-in">Save Changes</button>}

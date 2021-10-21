@@ -53,7 +53,7 @@ export function ReportsComponent() {
   return (
     <>
       <div className="dropdown">
-        <button className="btn navi-color dropdown-toggle w-25 mb-2 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button className="btn navi-background-color dropdown-toggle w-25 mb-2 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           {buttonTextMapping[selection as ReportKey] ?? selection}
         </button>
         <ul className="dropdown-menu w-25" aria-labelledby="dropdownMenuButton1">
@@ -64,21 +64,21 @@ export function ReportsComponent() {
       </div>
       <>
         {selection === ReportKey.barber && <div >
-          <div className="fs-4 navi-color p-2 mb-2"><i className="fa-solid fa-scissors"></i> Services</div>
+          <div className="fs-4 navi-background-color p-2 mb-2"><i className="fa-solid fa-scissors"></i> Services</div>
           <ReportListComponent reportData={filterBy(ReportKey.barber, ReportKey.service)} />
-          <div className="fs-4 navi-color p-2 my-2">Appointment Types</div>
+          <div className="fs-4 navi-background-color p-2 my-2">Appointment Types</div>
           <ReportListComponent reportData={filterBy(ReportKey.barber, ReportKey.appointmentType)} />
         </div>}
         {selection === ReportKey.service && <div >
-          <div className="fs-4 navi-color p-2 mb-2"><i className="fa-solid fa-user"></i> Barbers</div>
+          <div className="fs-4 navi-background-color p-2 mb-2"><i className="fa-solid fa-user"></i> Barbers</div>
           <ReportListComponent reportData={filterBy(ReportKey.service, ReportKey.barber)} />
-          <div className="fs-4 navi-color p-2 my-2">Appointment Types</div>
+          <div className="fs-4 navi-background-color p-2 my-2">Appointment Types</div>
           <ReportListComponent reportData={filterBy(ReportKey.service, ReportKey.appointmentType)} />
         </div>}
         {selection === ReportKey.appointmentType && <div >
-          <div className="fs-4 navi-color p-2 mb-2">Barbers</div>
+          <div className="fs-4 navi-background-color p-2 mb-2">Barbers</div>
           <ReportListComponent reportData={filterBy(ReportKey.appointmentType, ReportKey.barber)} />
-          <div className="fs-4 navi-color p-2 my-2">Services</div>
+          <div className="fs-4 navi-background-color p-2 my-2">Services</div>
           <ReportListComponent reportData={filterBy(ReportKey.appointmentType, ReportKey.service)} />
         </div>}
       </>

@@ -7,7 +7,7 @@ interface CheckInListComponentProps {
 export function CheckInListComponent(props: CheckInListComponentProps) {
   return <div className="container-fluid px-5">
     <table className="table table-borderless mb-5 fade-in">
-      <thead className="navi-color text-light border-light">
+      <thead className="navi-background-color text-light border-light">
         <tr className="table-font border-bottom ">
           <th scope="col">Customer</th>
           <th scope="col">Service</th>

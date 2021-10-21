@@ -92,7 +92,7 @@ export function CheckInComponent(props: CheckInComponentProps) {
       <div className="card border-0 mx-auto my-5 text-center">
         <div className="card-body mb-3 px-0">
           <div className="mb-3">
-            {state.filter(item => item).map((item, i) => <span key={i} className="badge rounded-pill fs-5 m-1 navi-color">{`${categories[i]}: ${item}`}</span>)}
+            {state.filter(item => item).map((item, i) => <span key={i} className="badge rounded-pill fs-5 m-1 navi-background-color">{`${categories[i]}: ${item}`}</span>)}
           </div>
           {CustomerInput()}
           <SelectionComponent index={1} options={services} title="What service are you getting?" currentIndex={currentIndex} handleChanges={handleChanges} />

@@ -12,7 +12,7 @@ export function ManageDailyCheckInListComponent(props: ManageDailyCheckInListCom
 
   return <div >
     <table className="table table-borderless mb-5 fade-in">
-      <thead className="navi-color text-light border-light">
+      <thead className="navi-background-color text-light border-light">
         <tr className="fs-5 border-bottom ">
           <th scope="col">Customer</th>
           <th scope="col">Service</th>
