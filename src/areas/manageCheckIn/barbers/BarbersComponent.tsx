@@ -12,19 +12,17 @@ export function BarbersComponent() {
 
   const addNewBarber = () => {
     const barbers = getItem<Barber[]>(storageKeys.BARBERS) ?? [];
-    const { firstName, lastName, alias } = barber;
+    const { firstName, lastName } = barber;
 
-    if (barbers.some(b => b.alias && b.alias?.toLowerCase() === alias?.toLowerCase())) {
-      return setAlert({ show: true, message: 'A barber with the same info already exist.', color: 'text-danger' });
-    }
-
-    const barberAlias = `HERO-${barbers.length + 1}`;
-    const barberCode = `HERO${barbers.length + 1}`;
+    const count = barbers.length + 1;
+    const barberAlias = `HERO-${count}`;
+    const barberCode = `HERO${count}`;
     const updatedBarbers = [{ firstName, lastName, alias: barberAlias, code: barberCode }, ...barbers];
+
     setItem(storageKeys.BARBERS, updatedBarbers);
-    setAlert({ show: true, message: `Barber with name: ${firstName} ${lastName} and alias ${barberAlias} has been successfully added.`, color: 'text-success' });
+    setAlert({ show: true, message: `${firstName} ${lastName} has been successfully added with alias ${barberAlias}.`, color: 'text-success' });
     setBarber({ firstName: '', lastName: '' });
-    setBarbers(updatedBarbers);
+    setBarbers(getBarbers());
   }
 
   const updateBarber = () => {
@@ -45,7 +43,7 @@ export function BarbersComponent() {
   }
 
   const handleOnChange = (barber: Barber) => {
-    setBarber(barber)
+    setBarber(barber);
   }
 
   const handleSubmit = () => {

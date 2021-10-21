@@ -67,14 +67,14 @@ export function CheckInComponent(props: CheckInComponentProps) {
   };
 
   const categories = ['Name', 'Service', 'Appointment', 'Barber'];
-  const appointmentTypes = ['Walk-in', 'Booksy', 'Phone', 'Other', 'Other', 'Other', 'Other', 'Other'];
+  const appointmentTypes = ['Walk-in', 'Booksy', 'Phone', 'Other'];
   const finish = state.filter(value => value?.trim()).length === 4;
   let finishButtonClass = "mt-2 btn btn-lg fs-1 fw-bold w-50 mx-auto";
 
   if (finish) {
-    finishButtonClass = `${finishButtonClass} btn-danger`
+    finishButtonClass = `${finishButtonClass} finish-button`
   } else {
-    finishButtonClass = `${finishButtonClass} btn-outline-danger`
+    finishButtonClass = `${finishButtonClass} selection-button`
   }
 
   if (services.length === 0 || barbers.length === 0) {
@@ -100,8 +100,8 @@ export function CheckInComponent(props: CheckInComponentProps) {
           <SelectionComponent index={3} options={barbers.map(b => `${b.firstName} ${b.lastName} (${b.alias})`)} title="Who's your hero barber?" currentIndex={currentIndex} handleChanges={handleChanges} />
         </div>
         <div className="btn-group w-50 mx-auto" role="group" aria-label="Basic outlined example">
-          <button type="button" disabled={currentIndex < 1} onClick={() => setCurrentIndex(currentIndex - 1)} className="btn btn-lg btn-outline-danger fs-1 fw-bold"><i className="fa-solid fa-circle-left"></i> Back</button>
-          <button type="button" disabled={currentIndex > 2} onClick={() => setCurrentIndex(currentIndex + 1)} className="btn btn-lg btn-outline-danger fs-1 fw-bold">Next <i className="fa-solid fa-circle-right"></i></button>
+          <button type="button" disabled={currentIndex < 1} onClick={() => setCurrentIndex(currentIndex - 1)} className="selection-button btn btn-lg fs-1 fw-bold"><i className="fa-solid fa-circle-left"></i> Back</button>
+          <button type="button" disabled={currentIndex > 2} onClick={() => setCurrentIndex(currentIndex + 1)} className="selection-button btn btn-lg fs-1 fw-bold">Next <i className="fa-solid fa-circle-right"></i></button>
         </div>
         <button type="button" disabled={!finish} onClick={handleSubmit} className={finishButtonClass}>Finish <i className="fa-solid fa-circle-plus"></i></button>
       </div>

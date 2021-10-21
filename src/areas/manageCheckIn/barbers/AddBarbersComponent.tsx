@@ -19,7 +19,7 @@ export function AddBarbersComponent(props: AddBarbersComponentProps) {
       <div className="col-md-12">
         <div>
           <div className="mb-3 text-center">
-            {props.alert.show && <div id="barberHelp" className={`${props.alert.color} "form-text fw-bold fs-4"`}><i className="fa-solid fa-triangle-exclamation"></i> {props.alert.message}</div>}
+            {props.alert.show && <div id="barberHelp" className={`${props.alert.color} "form-text fw-bold fs-4"`}><i className="fa-solid fa-circle-info"></i> {props.alert.message}</div>}
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@ export function AddBarbersComponent(props: AddBarbersComponentProps) {
             <h5 className="fs-5">{props.barber.alias ? `Alias: ${props.barber.alias}` : ''}</h5>
           </div>
           <div className="mb-1">
-            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small">Clear</button>
+            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small">Clear fields</button>
           </div>
           <button onClick={handleSubmit} type="submit" className="btn btn-primary w-100">Submit</button>
         </div>

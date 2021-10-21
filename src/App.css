@@ -115,10 +115,30 @@
   color: #ffffff;
 }
 
+.btn:active {
+  outline:none;
+}
+
 .selection-card{
   background-color: #e0e3eb;
   color: #192A53;
   border: 3px solid #192A53;
+}
+
+.selection-button{
+  border: 3px solid #192A53;
+  color: #192A53;
+  outline: none;
+}
+
+.finish-button{
+  background-color: #192A53;
+  color: #ffffff;
+}
+
+.selection-button:hover{
+  background-color: #192A53;
+  color: #ffffff;
 }
 
 .selection-card:hover {

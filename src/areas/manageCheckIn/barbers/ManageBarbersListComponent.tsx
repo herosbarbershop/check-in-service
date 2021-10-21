@@ -18,12 +18,12 @@ export function ManageBarbersListComponent(props: ManageBarbersListComponentProp
 
   return (
     <div className="row">
-      {props.barbers.length < 0 ? props.barbers.map((barber, i) => (
+      {props.barbers.length > 0 ? props.barbers.map((barber, i) => (
         <div className="col-md-3" key={barber.alias}>
           <div className="card m-1">
             <div className="card-body">
-              <h5 className="card-title">{barber.firstName} {barber.lastName}</h5>
-              <h6 className="card-subtitle mb-2 text-muted">Alias: {barber.alias}</h6>
+              <h5 className="card-title mx-1">{barber.firstName} {barber.lastName}</h5>
+              <h6 className="card-subtitle mb-2 mx-1 text-muted">Alias: {barber.alias}</h6>
               <button onClick={() => handleOnClick(barber.alias as string)} type="button" className="btn btn-sm navi-background-color mx-1 w-100">Update</button>
             </div>
           </div>
