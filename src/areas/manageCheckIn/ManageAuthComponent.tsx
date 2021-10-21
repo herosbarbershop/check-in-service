@@ -26,7 +26,7 @@ Modal.setAppElement('#root');
 export function ManageAuthComponent(props: ManageAuthComponentProps) {
   const [barbers] = useState(getItem<Barber[]>(storageKeys.BARBERS) ?? []);
   const [value, setValue] = useState('');
-  const [error, setShowError] = useState<AppAlert>({ show: false, message: '', });
+  const [show, setShow] = useState<boolean>(false);
 
   const authenticate = (e: any) => {
     const inputValue = e.target.value?.trim().toUpperCase() ?? '';
@@ -35,12 +35,14 @@ export function ManageAuthComponent(props: ManageAuthComponentProps) {
 
     if (barberCode) {
       setValue('');
-      setShowError({ show: false, message: '' });
+      setShow(false);
       props.authorize();
     } else {
-      setShowError({ show: true, message: 'Barber code is not valid!', color: 'text-danger' });
+      setShow(true);
     }
   };
+
+  const errorClass = show ? "text-danger fw-bold" : "text-danger fw-bold invisible"
 
   return <div className="modal fade" id="authenticateMode">
     <div className="modal-dialog">
@@ -58,15 +60,13 @@ export function ManageAuthComponent(props: ManageAuthComponentProps) {
           <input
             onChange={authenticate}
             value={value}
-            className="check-in-input fs-1 fw-bold text-center w-100 header-border-bottom"
-            type="text"
+            className="check-in-input fs-3 text-center w-100 header-border-bottom"
+            type="password"
             name="search"
             placeholder="Enter Code"
             autoFocus={true}
             autoComplete="off" />
-          {(value.length && error.show) ?
-            <span className="text-danger fw-bold"><i className="fa-solid fa-triangle-exclamation"></i> {error.message}</span> :
-            ''}
+          <span className={errorClass}><i className="fa-solid fa-triangle-exclamation"></i>Barber code is not valid!</span>
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" onClick={() => props.setIsModalOpen(false)}>{<i className="fa-solid fa-x"></i>} Close</button>

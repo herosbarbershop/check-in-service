@@ -34,14 +34,13 @@ function App() {
     setView(updateView());
   }
 
-  let checkInButtonLabel = 'Check In';
-  let checkInButtonIcon = <i ></i>;
+  let checkInButtonLabel = 'Check-in';
+  let checkInButtonIcon = <i className="fa-solid fa-calendar-check"></i>;
 
   if (isCheckingIn) {
-    checkInButtonLabel = 'Cancel Check In';
+    checkInButtonLabel = 'Cancel Check-in';
     checkInButtonIcon = <i className="fa-solid fa-solid fa-x"></i>;
   }
-
 
   const authorize = () => {
     handleViewChange(View.MANAGE);
@@ -63,7 +62,7 @@ function App() {
           <span className="navbar-brand mb-0 fs-4 fw-bold border rounded-3 px-2 border-3 text-danger">Hero's Barbershop</span>
           {view === View.CHECK_IN ?
             <span className="navbar-brand mb-0 h1 btn mr-auto border-bottom border-3" onClick={initializeAuth}>{<i className="fa-solid fa-pen-to-square"></i>} Manage</span> :
-            <span className="navbar-brand mb-0 h1 btn mr-auto border-bottom border-3" onClick={() => handleViewChange(View.CHECK_IN)}>{<i className="fa-solid fa-calendar-check"></i>} Check In</span>
+            <span className="navbar-brand mb-0 h1 btn mr-auto border-bottom border-3" onClick={() => handleViewChange(View.CHECK_IN)}>{<i className="fa-solid fa-calendar-check"></i>} Check-in</span>
           }
         </div>
       </nav>
