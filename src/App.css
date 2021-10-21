@@ -66,8 +66,9 @@
 
 .check-in-input {
   border: none;
+  color: #192A53;
   background: transparent;
-  border-bottom: 1px solid #fff;
+  border-bottom: 2px solid #fff;
   outline: none;
 }
 

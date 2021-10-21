@@ -25,7 +25,7 @@ export function SelectionComponent(props: SelectionComponentProps) {
     <div className="row">
       <div className="col">
         <div className="row">
-          <h5 className="display-4 mb-3">{props.title}</h5>
+          <h5 className="fs-2 mb-3 p-2 border-bottom">{props.title}</h5>
         </div>
         <div className="row">
           {props.options.map((option, i) => (

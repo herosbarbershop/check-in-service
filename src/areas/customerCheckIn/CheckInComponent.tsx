@@ -56,10 +56,10 @@ export function CheckInComponent(props: CheckInComponentProps) {
       <input
         onChange={handleChanges}
         value={state[0]}
-        className="check-in-input display-4 text-center w-100 fade-in"
+        className="check-in-input fs-2 text-center w-100 fade-in"
         type="text"
         name="search"
-        placeholder="Enter Preferred Name"
+        placeholder="Enter preferred name"
         autoFocus={true}
         autoComplete="off"
       />
@@ -67,7 +67,7 @@ export function CheckInComponent(props: CheckInComponentProps) {
   };
 
   const categories = ['Name', 'Service', 'Appointment', 'Barber'];
-  const appointmentTypes = ['Walk-in', 'Booksy', 'Phone', 'Other'];
+  const appointmentTypes = ['Walk-in', 'Booksy', 'Phone', 'Other', 'Other', 'Other', 'Other', 'Other'];
   const finish = state.filter(value => value?.trim()).length === 4;
   let finishButtonClass = "mt-2 btn btn-lg fs-1 fw-bold w-50 mx-auto";
 
