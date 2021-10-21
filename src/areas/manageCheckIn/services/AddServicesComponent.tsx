@@ -34,13 +34,13 @@ export function AddServicesComponent(props: AddServicesComponentProps) {
             <input onChange={handleOnChange} name="price" type="number" className="form-control" id="price" value={props.service.price} />
           </div>
           <div className="mb-3">
-            <h5 className="fs-5">Status: {props.service.active ? 'Active' : 'Not Active'}</h5>
+            <h5 className="fs-6 fw-bold">Status: {props.service.active ? 'Active' : 'Not Active'}</h5>
           </div>
           <div className="mb-3">
             <button onClick={() => handleStatusChange(!props.service.active)} type="button" className="btn btn-warning">{props.service.active ? 'Deactive Service' : 'Activate Service'}</button>
           </div>
           <div className="mb-1">
-            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small"><i className="fa-solid fa-xmark"></i> Clear</button>
+            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small fw-bold"><i className="fa-solid fa-xmark"></i> Clear fields</button>
           </div>
           <button onClick={handleSubmit} type="submit" className="btn selection-button w-100 fs-5 fw-bold">Submit</button>
         </div>

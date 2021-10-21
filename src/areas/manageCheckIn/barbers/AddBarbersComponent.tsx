@@ -37,7 +37,7 @@ export function AddBarbersComponent(props: AddBarbersComponentProps) {
             <h5 className="fs-5">{props.barber.alias ? `Alias: ${props.barber.alias}` : ''}</h5>
           </div>
           <div className="mb-1">
-            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small">Clear fields</button>
+            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small fw-bold"><i className="fa-solid fa-xmark"></i> Clear fields</button>
           </div>
           <button onClick={handleSubmit} type="submit" className="btn selection-button w-100 fs-5 fw-bold">Submit</button>
         </div>
