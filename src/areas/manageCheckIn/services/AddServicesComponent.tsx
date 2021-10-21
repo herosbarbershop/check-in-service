@@ -40,9 +40,9 @@ export function AddServicesComponent(props: AddServicesComponentProps) {
             <button onClick={() => handleStatusChange(!props.service.active)} type="button" className="btn btn-warning">{props.service.active ? 'Deactive Service' : 'Activate Service'}</button>
           </div>
           <div className="mb-1">
-            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small">Clear</button>
+            <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small"><i className="fa-solid fa-xmark"></i> Clear</button>
           </div>
-          <button onClick={handleSubmit} type="submit" className="btn btn-primary w-100">Submit</button>
+          <button onClick={handleSubmit} type="submit" className="btn selection-button w-100 fs-5 fw-bold">Submit</button>
         </div>
       </div>
     </div>);

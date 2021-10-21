@@ -83,7 +83,7 @@ export function CheckInEditComponent(props: CheckInEditComponentProps) {
         {mapping[optionKey as string]?.map((value: string, i: number) => <button type="button" disabled={value === newValue} onClick={() => value !== newValue && setOptionNewValue(value)} key={i} className="btn btn-sm navi-background-color mx-1">{value}</button>)}
       </div>}
       <div className="mb-3">
-        {newValue && <button type="button" onClick={handleSaveChanges} className="btn btn-sm btn-primary fs-5 fade-in">Save Changes</button>}
+        {newValue && <button type="button" onClick={handleSaveChanges} className="btn btn-sm selection-button fs-5 fade-in">Save Changes</button>}
       </div>
     </div>
   );

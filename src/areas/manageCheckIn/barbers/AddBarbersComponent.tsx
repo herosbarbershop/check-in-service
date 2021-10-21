@@ -39,7 +39,7 @@ export function AddBarbersComponent(props: AddBarbersComponentProps) {
           <div className="mb-1">
             <button onClick={() => handleClear()} type="button" className="btn btn-secondary btn-small">Clear fields</button>
           </div>
-          <button onClick={handleSubmit} type="submit" className="btn btn-primary w-100">Submit</button>
+          <button onClick={handleSubmit} type="submit" className="btn selection-button w-100 fs-5 fw-bold">Submit</button>
         </div>
       </div>
     </div>);
