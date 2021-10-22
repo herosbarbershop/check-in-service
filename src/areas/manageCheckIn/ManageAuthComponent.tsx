@@ -24,12 +24,12 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 export function ManageAuthComponent(props: ManageAuthComponentProps) {
-  const [barbers] = useState(getItem<Barber[]>(storageKeys.BARBERS) ?? []);
   const [value, setValue] = useState('');
   const [show, setShow] = useState<boolean>(false);
 
   const authenticate = (e: any) => {
     const inputValue = e.target.value?.trim().toUpperCase() ?? '';
+    const barbers = getItem<Barber[]>(storageKeys.BARBERS) ?? [];
     const barberCode = barbers.find((b: any) => b.code === inputValue)?.code;
     setValue(inputValue);
 
